@@ -3478,8 +3478,10 @@ public class GsmCdmaPhone extends Phone {
             result = mIExtTelephony.isEmergencyNumber(address);
         } catch (RemoteException ex) {
             loge("RemoteException" + ex);
+            result = PhoneNumberUtils.isEmergencyNumber(address);
         } catch (NullPointerException ex) {
             loge("NullPointerException" + ex);
+            result = PhoneNumberUtils.isEmergencyNumber(address);
         }
         return result;
     }
